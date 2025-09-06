@@ -1,0 +1,28 @@
+prompt: "follow the man in red"
+default_model: yolo12m
+switch:
+  short_gap: 2
+  long_gap: 15
+  cooldown_frames: 60
+clip:
+  base_thresh: 0.70
+  tight_thresh: 0.80
+  loose_thresh: 0.60
+  margin_delta: 0.05
+bridge:
+  default: 8
+  high_motion: 4
+  stable: 12
+provider:
+  name: ultralytics        # ultralytics | roboflow | replicate | hf
+  model_id: "your_model_id"
+  timeout_s: 10
+
+ultra:
+  api_key: "aee3b7c66e472496b54163e97b1f4c2583cf75c567"
+  models:
+    yolo11n: "https://hub.ultralytics.com/models/blQiHM1lbRZVIglU81XC"
+    yolo11m: "https://hub.ultralytics.com/models/fGERKqVofxWg6vtTAnta"
+    yolo11x: "https://hub.ultralytics.com/models/GjreEHgDl2PC13wG7PuC"
+
+weights: "/Users/xiajingyuan/Desktop/capstone/YOLO/runs/detect/train6/weights/best.pt"
