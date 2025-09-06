@@ -5,7 +5,7 @@ import json
 def nlp_json_deepseek(user_input: str) -> dict:
     url = "https://api.deepseek.com/v1/chat/completions"
     headers = {
-        "Authorization": "Bearer sk-8506db311e524215925ee88750743f81".encode("utf-8").decode("utf-8"),
+        "Authorization": "YOUR API KEY".encode("utf-8").decode("utf-8"),
         "Content-Type": "application/json; charset=utf-8"
     }
 
