@@ -1,23 +1,41 @@
-# 🎯 Agentic Video Object Tracking & Editing System
+# 🎯 Agentic AI for Video Object Tracking
 
-A sophisticated multi-modal AI system for intelligent video object tracking and editing, built with an agent-adapter architecture and LangGraph orchestration.
+> **A pioneering multi-modal AI system that autonomously optimizes video object tracking parameters through intelligent agent-based decision making.**
 
-## 🏗️ Architecture
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![LangGraph](https://img.shields.io/badge/LangGraph-enabled-green.svg)](https://github.com/langchain-ai/langgraph)
+[![Multi-Modal](https://img.shields.io/badge/Multi--Modal-CLIP%2BLLM-orange.svg)](https://github.com/mlfoundations/open_clip)
+
+## 🌟 Key Innovation
+
+This project introduces the **first Agentic AI approach** to video object tracking, where AI agents autonomously analyze video content and optimize tracking parameters without manual tuning.
+
+## 🏗️ Architecture Overview
 
 ```
-📁 Project Structure
-├── agent/              # 🧠 Decision Logic Layer
-│   ├── planner.py         # Strategy Planning
-│   ├── graph_build.py     # Workflow Orchestration  
-│   └── state_types.py     # State Management
-├── adapter/            # 🔧 Implementation Layer
-│   ├── detection.py       # YOLO Detection Adapter
-│   ├── tracking.py        # ByteTrack Tracking Adapter
-│   ├── clip_matcher.py    # CLIP Semantic Matching
-│   └── editing.py         # Video Editing Functions
-├── configs/            # ⚙️ Configuration Files
-└── agent_main.py       # 📱 Unified Interface
+🖥️  User Interface Layer
+    ├── agent_main.py              # Traditional System  
+    └── agent_main_mllm.py         # MLLM-Enhanced System
+
+🧠  Agent Layer (Decision & Strategy)
+    ├── agent/planner.py           # Parameter Optimization
+    ├── agent/policies.py          # Decision Policies
+    ├── multimodal_advisor.py      # MLLM-based Analysis
+    └── agent/state_types.py       # State Management
+
+🔧  Adapter Layer (Tool Implementation)  
+    ├── adapter/detection_api.py   # YOLO Integration
+    ├── adapter/tracking.py        # ByteTrack Wrapper
+    ├── adapter/clip_matcher.py    # Semantic Matching
+    ├── adapter/editing.py         # Video Processing
+    └── adapter/global_id.py       # Identity Management
+
+⚙️  Foundation Layer
+    ├── tracker/                   # ByteTrack Implementation
+    └── configs/                   # System Configuration
 ```
+
+For detailed architecture documentation, see [ARCHITECTURE.md](./ARCHITECTURE.md).
 
 ## 🚀 Features
 
@@ -53,14 +71,31 @@ pip install moviepy
 
 ## 🎮 Usage
 
-### Basic Usage
+### 🤖 MLLM-Enhanced System (Recommended)
 ```bash
-python agent_main.py --video demo.mp4 --text "track the brown teddy dog" --output_dir ./output
+# Intelligent parameter optimization with multi-modal LLM
+python agent_main_mllm.py --video demo2.mp4 --text "track the woman in white clothes dancing" --output_dir ./output_mllm
 ```
+
+### 🔧 Traditional System (For Comparison)
+```bash
+# Manual parameter configuration
+python agent_main.py --video demo2.mp4 --text "track the woman in white clothes dancing" --output_dir ./output_traditional
+```
+
+### 📊 Key Differences
+
+| Feature | Traditional System | MLLM-Enhanced System |
+|---------|-------------------|---------------------|
+| **Parameter Tuning** | Manual configuration | Fully automated |
+| **Video Analysis** | Rule-based | AI-powered analysis |
+| **Target Detection** | Basic matching | Semantic understanding |
+| **Adaptation** | Static parameters | Dynamic optimization |
+| **User Experience** | Technical expertise required | Natural language input |
 
 ### Parameters
 - `--video`: Input video file path
-- `--text`: Natural language description of target object
+- `--text`: Natural language description of target object  
 - `--output_dir`: Output directory for processed video
 
 ## 🧠 System Workflow
