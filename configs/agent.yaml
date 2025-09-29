@@ -1,5 +1,5 @@
 prompt: "follow the man in red"
-default_model: yolo12m
+default_model: yolo11n
 switch:
   short_gap: 2
   long_gap: 15
@@ -21,8 +21,13 @@ provider:
 ultra:
   api_key: "aee3b7c66e472496b54163e97b1f4c2583cf75c567"
   models:
-    yolo11n: "https://hub.ultralytics.com/models/blQiHM1lbRZVIglU81XC"
-    yolo11m: "https://hub.ultralytics.com/models/fGERKqVofxWg6vtTAnta"
-    yolo11x: "https://hub.ultralytics.com/models/GjreEHgDl2PC13wG7PuC"
+    yolo11n: "https://predict-blqihm1lbrzviglu81xc-7nza6zqsha-ew.a.run.app"
+    yolo11m: "https://predict-fgerkqvofxwg6vttanta-7nza6zqsha-ew.a.run.app"
+    yolo11x: "https://predict-gjreehgdl2pc13wg7puc-7nza6zqsha-ew.a.run.app"
 
-weights: "/Users/xiajingyuan/Desktop/capstone/YOLO/runs/detect/train6/weights/best.pt"
+# 本地模型配置
+weights: "yolo11n.pt"  # 默认使用YOLO11n
+local_models:
+  yolo11n: "yolo11n.pt"
+  yolo11m: "yolo11m.pt" 
+  yolo11x: "yolo11x.pt"

@@ -229,16 +229,19 @@ def build_app():
         gid_frames = s.get("gid_frames", {})   # Dict[int, List[int]]
         gid_scores = s.get("gid_scores", {})   # Dict[int, List[float]] - 新增
 
-        # 1) 累计 gid -> frames 和 gid -> scores（只有passed的track才记录）
+        # 1) 累计 gid -> frames 和 gid -> scores（有Global ID就直接记录）
         for t in tracks:
             gid = t.get("global_id")
             if gid is None:
                 continue
                 
-            # ★ 检查是否通过CLIP阈值（只有passed的才记录到gid_frames）
+            # ★ 简化逻辑：有Global ID就直接记录，不需要再次检查CLIP阈值
+            # 因为Global ID只有在通过CLIP阈值时才会被分配
+            gid_frames.setdefault(int(gid), []).append(idx)
+            
+            # 获取对应的CLIP分数用于统计
             track_bbox = t.get("bbox", [0,0,0,0])
-            best_det = None
-            best_iou = 0.0
+            best_clip_score = 0.0
             
             for det in detections:
                 det_bbox = det.get("bbox", [0,0,0,0])
@@ -251,19 +254,12 @@ def build_app():
                     det_area = (det_bbox[2] - det_bbox[0]) * (det_bbox[3] - det_bbox[1])
                     union = track_area + det_area - intersection
                     iou = intersection / max(union, 1e-6)
-                    if iou > best_iou:
-                        best_iou = iou
-                        best_det = det
+                    if iou > 0.3:  # 只用于获取CLIP分数，不用于过滤
+                        clip_score = float(det.get("clip_score", 0.0))
+                        if clip_score > best_clip_score:
+                            best_clip_score = clip_score
             
-            if best_det is not None and best_iou > 0.3:
-                clip_score = float(best_det.get("clip_score", 0.0))
-                clip_thresh = float(s.get("clip_thresh", 0.0))
-                passed = (clip_score >= clip_thresh) if clip_thresh > 0 else True
-                
-                # 只有通过CLIP阈值的才记录
-                if passed:
-                    gid_frames.setdefault(int(gid), []).append(idx)
-                    gid_scores.setdefault(int(gid), []).append(clip_score)
+            gid_scores.setdefault(int(gid), []).append(best_clip_score)
         
         s["gid_frames"] = gid_frames
         s["gid_scores"] = gid_scores  # 新增
