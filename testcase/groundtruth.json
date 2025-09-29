@@ -1,0 +1,82 @@
+[
+  {
+    "video": "dog.mp4",
+    "prompt": "the brown teddy dog",
+    "segments": [[1, 294], [925, 1250], [1744, 1976]]
+  },
+  {
+    "video": "dog.mp4",
+    "prompt": "Shiba Inu",
+    "segments": [[1326, 1743]]
+  },
+  {
+    "video": "apple.mp4",
+    "prompt": "green apple",
+    "segments": [[1, 460]]
+  },
+  {
+    "video": "apple.mp4",
+    "prompt": "red apple",
+    "segments": [[461, 601]]
+  },
+  {
+    "video": "bicycle.mp4",
+    "prompt": "boy in blue riding bicycle",
+    "segments": [[1, 269], [947, 1387]]
+  },
+  {
+    "video": "bicycle.mp4",
+    "prompt": "man in red riding bicycle",
+    "segments": [[1399, 1508]]
+  },
+  {
+    "video": "book.mp4",
+    "prompt": "girl reading book",
+    "segments": [[209, 964]]
+  },
+  {
+    "video": "bus.mp4",
+    "prompt": "red bus",
+    "segments": [[1, 938]]
+  },
+  {
+    "video": "car.mp4",
+    "prompt": "blue car",
+    "segments": [[1, 1491]]
+  },
+  {
+    "video": "girl.mp4",
+    "prompt": "white girl",
+    "segments": [[1, 376]]
+  },
+  {
+    "video": "girl.mp4",
+    "prompt": "black girl",
+    "segments": [[377, 1165]]
+  },
+  {
+    "video": "cat.mp4",
+    "prompt": "orange cat",
+    "segments": [[1, 1121], [1433, 1821]]
+  },
+  {
+    "video": "cat.mp4",
+    "prompt": "black cat",
+    "segments": [[1122, 1432]]
+  },
+  {
+    "video": "chair.mp4",
+    "prompt": "white chair",
+    "segments": [[1, 286]]
+  },
+  {
+    "video": "chair.mp4",
+    "prompt": "orange chair",
+    "segments": [[287, 1051]]
+  },
+  {
+    "video": "house.mp4",
+    "prompt": "big house",
+    "segments": [[1, 318]]
+  }
+]
